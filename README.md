@@ -1,6 +1,6 @@
 # weather_demo
 
-A new Flutter project.
+![1](https://github.com/dexterTalha/weather_demo/blob/main/assets/images/Screenshot_1652250712.png)
 
 ## Getting Started
 
