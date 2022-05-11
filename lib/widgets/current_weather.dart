@@ -24,57 +24,59 @@ class CurrentWeather extends StatelessWidget {
       margin: const EdgeInsets.all(2),
       padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
       color: Colors.transparent,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          GlowText(
-            data.city!.name!,
-            style: const TextStyle(
-              height: 0.1,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Colors.white,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GlowText(
+              data.city!.name!,
+              style: const TextStyle(
+                height: 0.1,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.white,
+              ),
             ),
-          ),
-          Image(
-            image: AssetImage(
-              Util.findIcon('${forecastList[0].weather![0].main}', true),
+            Image(
+              image: AssetImage(
+                Util.findIcon('${forecastList[0].weather![0].main}', true),
+              ),
+              fit: BoxFit.fill,
             ),
-            fit: BoxFit.fill,
-          ),
-          GlowText(
-            '$temp °C',
-            style: const TextStyle(
-              height: 0.1,
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+            GlowText(
+              '$temp °C',
+              style: const TextStyle(
+                height: 0.1,
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            '${forecastList[0].weather![0].description}'.toTitleCase(),
-            style: const TextStyle(
-              fontSize: 20,
-              color: Colors.white,
+            const SizedBox(
+              height: 10,
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            Util.getFormattedDate(formattedDate),
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.white,
+            Text(
+              '${forecastList[0].weather![0].description}'.toTitleCase(),
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
             ),
-          ),
-          const Divider(color: Colors.white),
-          const SizedBox(height: 10),
-          ExtraWeather(snapshot: snapshot),
-        ],
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              Util.getFormattedDate(formattedDate),
+              style: const TextStyle(
+                fontSize: 15,
+                color: Colors.white,
+              ),
+            ),
+            const Divider(color: Colors.white),
+            const SizedBox(height: 10),
+            ExtraWeather(snapshot: snapshot),
+          ],
+        ),
       ),
     );
   }
